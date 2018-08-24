@@ -59,7 +59,10 @@
     <Compile Include="Models\RuleSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\CardMaxAmount.cs" />
     <Compile Include="Rules\DeckMaxSize.cs" />
+    <Compile Include="Rules\DeckMinSize.cs" />
+    <Compile Include="Rules\Forbidden.cs" />
     <Compile Include="Rules\IRule.cs" />
   </ItemGroup>
   <ItemGroup>

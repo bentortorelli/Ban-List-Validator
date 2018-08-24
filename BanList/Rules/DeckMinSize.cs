@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace BanList.Rules
 {
-	public class DeckMaxSize : IRule
+	public class DeckMinSize : IRule
 	{
 		public string RuleName;
 		public string DeckName;
-		public int MaxSize;
+		public int MinSize;
 
 		public Tuple<bool, String> Validate(Deck deck)
 		{
 			bool pass = deck.Where(x => x.DeckName == DeckName)
-				.Sum(x => x.Amount) <= MaxSize;
+				.Sum(x => x.Amount) >= MinSize;
 
-			String returnString = $"{RuleName}: {DeckName} deck maximum size of {MaxSize}: {(pass ? "Pass" : "Fail")}";
+			String returnString = $"{RuleName}: {DeckName} deck minimum size of {MinSize}: {(pass ? "Pass" : "Fail")}";
 			return Tuple.Create(pass, returnString);
 		}
 
@@ -24,7 +24,7 @@ namespace BanList.Rules
 		{
 			RuleName = csv.GetField(0);
 			DeckName = csv.GetField(1);
-			MaxSize = csv.GetField<int>(2);
+			MinSize = csv.GetField<int>(2);
 		}
 	}
 }
