@@ -1,6 +1,7 @@
 ﻿using BanList.Models;
 using CsvHelper;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Net;
 
 namespace BanList.Builders
@@ -9,7 +10,7 @@ namespace BanList.Builders
 	{
 		public static Deck Build(CsvReader cardReader)
 		{
-			const string apiEndpoint = "https://private-a4d2d7-ygohub.apiary-mock.com/api/card_info?name=";
+			const string apiEndpoint = "https://www.ygohub.com/api/card_info?name=";
 			Deck deck = new Deck();
 
 			cardReader.Read();
@@ -21,7 +22,7 @@ namespace BanList.Builders
 				string deckName = cardReader.GetField("Deck");
 
 				var client = new WebClient();
-				var response = client.DownloadString(apiEndpoint + cardName);
+				var response = client.DownloadString(apiEndpoint + Uri.EscapeDataString(cardName));
 
 				var card = JObject.Parse(response).GetValue("card").ToObject<Card>();
 				card.Amount = cardAmount;

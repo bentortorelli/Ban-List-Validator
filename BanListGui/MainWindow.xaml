@@ -16,9 +16,9 @@
             <Button Content="Load Deck" Click="LoadDeckCick" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="75"/>
             <Button Content="Validate" Click="ValidateCick" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="75"/>
             <Label Content="Rules Loaded:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.09,5.047" Margin="-2,96,0,0"/>
-            <Label Content="0" HorizontalAlignment="Left" Margin="81,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.158,1.108"/>
+            <Label Name="RuleCounter" Content="0" HorizontalAlignment="Left" Margin="81,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.158,1.108"/>
             <Label Content="Deck Size:" HorizontalAlignment="Left" Margin="-2,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.051,-10.193" Width="87"/>
-            <Label Content="0" HorizontalAlignment="Left" Margin="81,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.12"/>
+            <Label Name="CardCounter" Content="0" HorizontalAlignment="Left" Margin="81,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.12"/>
         </Grid>
         <Grid Grid.ColumnSpan="2">
             <TextBlock Name="TextOutput" Text="TextBox" Margin="141,0,0,0"/>

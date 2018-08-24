@@ -1,10 +1,9 @@
 ﻿using BanList.Builders;
+using BanList.Models;
 using CsvHelper;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using BanList.Models;
-using BanList.Builders;
 
 namespace BanListGui
 {
@@ -22,12 +21,14 @@ namespace BanListGui
 		{
 			var cardReader = new CsvReader(File.OpenText(deckFile));
 			Deck = DeckBuilder.Build(cardReader);
+			cardReader.Dispose();
 		}
 
 		public void loadRules(string rulesFile)
 		{
 			var rulesReader = new CsvReader(File.OpenText(rulesFile));
 			Rules = RuleBuilder.Build(rulesReader);
+			rulesReader.Dispose();
 		}
 
 		public void validate()

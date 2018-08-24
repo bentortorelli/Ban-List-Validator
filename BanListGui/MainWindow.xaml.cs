@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Windows;
 
@@ -26,6 +27,7 @@ namespace BanListGui
 				{
 					DeckRules.loadRules(openFileDialog.FileName);
 					TextOutput.Text = File.ReadAllText(openFileDialog.FileName);
+					RuleCounter.Content = DeckRules.Rules.Count.ToString();
 				} catch
 				{
 					TextOutput.Text = "Unable to open file.";
@@ -42,6 +44,7 @@ namespace BanListGui
 				{
 					DeckRules.loadDeck(openFileDialog.FileName);
 					TextOutput.Text = File.ReadAllText(openFileDialog.FileName);
+					CardCounter.Content = DeckRules.Deck.Count.ToString();
 				}
 				catch
 				{
@@ -53,7 +56,18 @@ namespace BanListGui
 		private void ValidateCick(object sender, RoutedEventArgs e)
 		{
 			DeckRules.validate();
-			TextOutput.Text = "validating...";
+			if(DeckRules.Results == null)
+			{
+				TextOutput.Text = "Load rules and deck lists before validating.";
+				return;
+			}
+
+			string output = "";
+			foreach (Tuple<bool, string> result in DeckRules.Results)
+			{
+				output += result.Item2 + "\n";
+			}
+			TextOutput.Text = output;
 		}
 	}
 }
