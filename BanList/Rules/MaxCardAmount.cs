@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BanList.Rules
 {
-	public class CardMaxAmount : Rule
+	public class MaxCardAmount : Rule
 	{
 		public string CardName;
 		public int MaxAmount;

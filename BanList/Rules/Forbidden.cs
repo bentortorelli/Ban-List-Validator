@@ -21,7 +21,7 @@ namespace BanList.Rules
 
 		public override bool isDeckValid(IList<Card> deck)
 		{
-			CardMaxAmount maxAmountRule = new CardMaxAmount
+			MaxCardAmount maxAmountRule = new MaxCardAmount
 			{
 				CardName = this.CardName,
 				MaxAmount = 0
