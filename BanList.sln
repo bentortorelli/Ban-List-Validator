@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanListGui", "BanListGui\Ba
 		{83E0B459-D834-4B3D-BC20-E107D90445DC} = {83E0B459-D834-4B3D-BC20-E107D90445DC}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanList.Test", "BanList.Test\BanList.Test.csproj", "{136DE2AE-9648-47A0-92AB-E1A31C9D1363}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83E0B459-D834-4B3D-BC20-E107D90445DC} = {83E0B459-D834-4B3D-BC20-E107D90445DC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{7F98DA32-7DE1-46B3-81D4-2A37E68A485D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F98DA32-7DE1-46B3-81D4-2A37E68A485D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F98DA32-7DE1-46B3-81D4-2A37E68A485D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{136DE2AE-9648-47A0-92AB-E1A31C9D1363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{136DE2AE-9648-47A0-92AB-E1A31C9D1363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{136DE2AE-9648-47A0-92AB-E1A31C9D1363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{136DE2AE-9648-47A0-92AB-E1A31C9D1363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
