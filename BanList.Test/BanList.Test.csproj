@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardAmount\MaxCardAmountTest.cs" />
+    <Compile Include="CardAmount\MinCardAmountTest.cs" />
     <Compile Include="DeckSize\MaxDeckSizeTest.cs" />
     <Compile Include="DeckSize\MinDeckSizeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

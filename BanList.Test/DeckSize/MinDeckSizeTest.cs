@@ -16,19 +16,18 @@ namespace DeckSize
 		private List<Card> buildDeck()
 		{
 			List<Card> deck = new List<Card>();
-			for (int i = 0; i < DeckLimit; i++)
+
+			deck.Add(new Card()
 			{
-				deck.Add(new Card()
-				{
-					DeckName = MainDeckName,
-					Amount = 1
-				});
-				deck.Add(new Card()
-				{
-					DeckName = SideDeckName,
-					Amount = 1
-				});
-			}
+				DeckName = MainDeckName,
+				Amount = DeckLimit
+			});
+			deck.Add(new Card()
+			{
+				DeckName = SideDeckName,
+				Amount = DeckLimit
+			});
+
 			return deck;
 		}
 
@@ -41,16 +40,10 @@ namespace DeckSize
 				DeckName = MainDeckName,
 				MinSize = DeckLimit
 			};
-			MinDeckSize sideDeckRule = new MinDeckSize()
-			{
-				RuleName = RuleName,
-				DeckName = MainDeckName,
-				MinSize = DeckLimit
-			};
+
 			List<Card> deck = buildDeck();
 
 			Assert.IsTrue(mainDeckRule.isDeckValid(deck));
-			Assert.IsTrue(sideDeckRule.isDeckValid(deck));
 		}
 
 		[TestMethod]
@@ -62,16 +55,10 @@ namespace DeckSize
 				DeckName = MainDeckName,
 				MinSize = DeckLimit + 1
 			};
-			MinDeckSize sideDeckRule = new MinDeckSize()
-			{
-				RuleName = RuleName,
-				DeckName = MainDeckName,
-				MinSize = DeckLimit
-			};
+
 			List<Card> deck = buildDeck();
 
 			Assert.IsFalse(mainDeckRule.isDeckValid(deck));
-			Assert.IsTrue(sideDeckRule.isDeckValid(deck));
 		}
 
 		[TestMethod]
@@ -83,16 +70,10 @@ namespace DeckSize
 				DeckName = MainDeckName,
 				MinSize = DeckLimit - 1
 			};
-			MinDeckSize sideDeckRule = new MinDeckSize()
-			{
-				RuleName = RuleName,
-				DeckName = MainDeckName,
-				MinSize = DeckLimit
-			};
+
 			List<Card> deck = buildDeck();
 
 			Assert.IsTrue(mainDeckRule.isDeckValid(deck));
-			Assert.IsTrue(sideDeckRule.isDeckValid(deck));
 		}
 	}
 }
