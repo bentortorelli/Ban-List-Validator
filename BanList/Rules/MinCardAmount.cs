@@ -12,7 +12,7 @@ namespace BanList.Rules
 
 		public override string generateRuleText()
 		{
-			return $"{CardName} amount less than {MaxAmount}";
+			return $"{CardName} amount greater than {MaxAmount}";
 		}
 
 		public override bool isDeckValid(IList<Card> deck)
