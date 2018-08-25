@@ -1,35 +1,32 @@
 ﻿using BanList.Models;
 using CsvHelper;
-using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace BanList.Rules
 {
-	public class Forbidden : IRule
+	public class Forbidden : Rule
 	{
-		public string RuleName;
 		public string CardName;
-		public int MaxAmount;
 
-		public Tuple<bool, String> Validate(Deck deck)
-		{
-			CardMaxAmount forbidden = new CardMaxAmount
-			{
-				CardName = this.CardName,
-				MaxAmount = this.MaxAmount
-			};
-			bool pass = deck.Where(x => x.Name == CardName)
-				.Sum(x => x.Amount) <= MaxAmount;
-
-			String returnString = $"{RuleName}: {CardName} deck maximum size of {MaxAmount}: {(pass ? "Pass" : "Fail")}";
-			return Tuple.Create(pass, returnString);
-		}
-
-		public void Parse(CsvReader csv)
+		public override void Parse(CsvReader csv)
 		{
 			RuleName = csv.GetField(0);
 			CardName = csv.GetField(1);
-			MaxAmount = csv.GetField<int>(2);
+		}
+
+		public override string generateRuleText()
+		{
+			return $"{CardName} is Forbidden";
+		}
+
+		public override bool isDeckValid(IList<Card> deck)
+		{
+			CardMaxAmount maxAmountRule = new CardMaxAmount
+			{
+				CardName = this.CardName,
+				MaxAmount = 0
+			};
+			return maxAmountRule.isDeckValid(deck);
 		}
 	}
 }

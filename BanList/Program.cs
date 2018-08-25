@@ -25,7 +25,7 @@ namespace BanList
 			var rulesReader = new CsvReader(File.OpenText(rulesFile));
 			var rulesList = RuleBuilder.Build(rulesReader);
 
-			foreach (IRule r in rulesList)
+			foreach (Rule r in rulesList)
 			{
 				Console.WriteLine(r.Validate(deck).Item2);
 			};

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
@@ -55,8 +56,8 @@ namespace BanListGui
 
 		private void ValidateCick(object sender, RoutedEventArgs e)
 		{
-			DeckRules.validate();
-			if(DeckRules.Results == null)
+			DeckRules.Validate();
+			if(DeckRules.Results == null || DeckRules.Results.Count == 0)
 			{
 				TextOutput.Text = "Load rules and deck lists before validating.";
 				return;

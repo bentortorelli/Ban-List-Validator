@@ -2,16 +2,17 @@
 using CsvHelper;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Net;
 
 namespace BanList.Builders
 {
 	public class DeckBuilder
 	{
-		public static Deck Build(CsvReader cardReader)
+		public static IList<Card> Build(CsvReader cardReader)
 		{
 			const string apiEndpoint = "https://www.ygohub.com/api/card_info?name=";
-			Deck deck = new Deck();
+			List<Card> deck = new List<Card>();
 
 			cardReader.Read();
 			cardReader.ReadHeader();
